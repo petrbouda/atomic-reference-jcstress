@@ -1,0 +1,1177 @@
+
+<html>
+<head>
+<title>Java Concurrency Stress test report</title>
+ <style type="text/css">
+   * { font-family: Arial; }
+   table { font-size: 9pt; }
+   a { color: #000000; }
+   .progress { padding: 0px; }
+   .header { text-align: left; }
+   .section1 { font-size: 12pt; background-color: #BDB76B; color: #000000; font-weight: bold;}
+   .section2 { font-size: 12pt; background-color: #F0E68C; color: #000000; font-weight: bold;}
+   .cell1 { background-color: #FAFAD2; }
+   .cell2 { background-color: #EEE8AA; }
+   .passedProgress { background-color: #00AA00; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .failedProgress { background-color: #FF0000; color: #FFFFFF; text-align: center; font-weight: bold; }
+   .passed { color: #00AA00; text-align: center; font-weight: bold; }
+   .failed { color: #FF0000; text-align: center; font-weight: bold; }
+   .interesting { color: #0000FF; text-align: center; font-weight: bold; }
+   .spec { color: #AAAA00; text-align: center; font-weight: bold; }
+   .endResult { font-size: 48pt; text-align: center; font-weight: bold; }
+ </style>
+</head>
+<body>
+<h1>org.example.AtomicReferenceOrdering.GuardedByAtomic</h1>
+<h3>Description and references</h3>
+<p>null</p>
+<h3>Environment</h3>
+<table>
+<tr>
+<td nowrap>java.specification.name</td>
+<td nowrap>Java Platform API Specification</td>
+</tr>
+<tr>
+<td nowrap>java.specification.vendor</td>
+<td nowrap>Oracle Corporation</td>
+</tr>
+<tr>
+<td nowrap>java.specification.version</td>
+<td nowrap>20</td>
+</tr>
+<tr>
+<td nowrap>java.vendor</td>
+<td nowrap>Azul Systems, Inc.</td>
+</tr>
+<tr>
+<td nowrap>java.version</td>
+<td nowrap>20</td>
+</tr>
+<tr>
+<td nowrap>java.vm.name</td>
+<td nowrap>OpenJDK 64-Bit Server VM</td>
+</tr>
+<tr>
+<td nowrap>java.vm.vendor</td>
+<td nowrap>Azul Systems, Inc.</td>
+</tr>
+<tr>
+<td nowrap>java.vm.version</td>
+<td nowrap>20+36</td>
+</tr>
+<tr>
+<td nowrap>os.arch</td>
+<td nowrap>amd64</td>
+</tr>
+<tr>
+<td nowrap>os.name</td>
+<td nowrap>Linux</td>
+</tr>
+<tr>
+<td nowrap>os.version</td>
+<td nowrap>5.15.0-73-generic</td>
+</tr>
+</table>
+<h3>Results</h3>
+<table cellpadding=5 border=1>
+<tr>
+<th>Compilation Mode</th>
+<th>Scheduling Class</th>
+<th>Java Options</th>
+<th>Status</th>
+<th colspan=3>Observed States</th>
+</tr>
+<tr>
+<th colspan=4></th>
+<th nowrap align='center'>0, 0</th>
+<th nowrap align='center'>0, 1</th>
+<th nowrap align='center'>1, 1</th>
+</tr>
+<tr>
+<td colspan=4></td>
+<td>Acceptable</td>
+<td>Acceptable</td>
+<td>Acceptable</td>
+</tr>
+<tr>
+<td colspan=4></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>124582</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>197491</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>16807418</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1345963</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>307561</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>45970687</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>109682</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>30418</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>14265551</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>62798</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>117153</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>34162980</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>40414</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>41489</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17600548</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1019535674]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>53226</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>58539</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>20018046</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1614971719]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44250</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37068</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17119853</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1985145284]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>32332</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>33234</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17534965</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=274797089]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>39775</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>32894</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>13974582</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=551445746]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>29077</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>49307</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>19856867</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>101995</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>146656</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>50150600</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1451505284]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>57956</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>107481</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>34126294</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=217885985]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>77816</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>116658</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>36759657</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=278686315]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>170600</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>60023</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>20964148</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=347622467]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>102210</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>148895</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>51213106</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: Interpreter
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=442444597]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>58994</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>91463</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>27475034</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>28815836</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>121571</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>633684</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>64557971</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>197430</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>491850</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>4504134</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>801415</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>72321862</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>142347581</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2708949</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>25017601</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1105925</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>102026</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>65974660</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1241743441]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>474544</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>53280</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>50342467</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1385446232]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>4595000</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>411827</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>80843304</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=359534034]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1144654</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>123880</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>64920797</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=639114672]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>681425</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>48243</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>37084623</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=669328523]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>7371398</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>687186</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>54085947</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>14651999</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1103752</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>107224620</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1322359745]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>15499343</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1769775</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>107493013</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1424368058]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38348096</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2281760</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>102943155</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1800628211]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17488673</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1357190</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>117221228</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=2069338383]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>49032504</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1942821</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>82337206</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C1
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=364948361]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>70387368</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2393856</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>76044907</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35387791</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>96275</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>435825</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1052180805]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>38506223</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>108530</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>223538</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1064782999]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>35632272</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>93435</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>450184</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1942533942]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>32928734</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>89489</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>433828</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1950557052]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>26438201</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>63890</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>519240</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=86373187]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>30123462</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>75413</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>263096</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>62225923</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>172089</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>442839</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1406338281]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>55460627</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>164464</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>447120</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1721847969]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>58682988</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>149223</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>496320</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1785742060]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>62058047</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>157938</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>461026</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=865222054]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>54952588</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>125976</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>440687</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: Interpreter
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=93394321]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>60918157</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>150074</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>461900</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>119541808</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2116499</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2950224</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1061997620]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>87084705</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1501983</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2659923</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1360728617]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>105184353</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1527475</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>3990783</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1462268205]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>48257901</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1795434</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>6786876</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1695470600]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>105965707</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2530506</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>3373758</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=171133111]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>89482374</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1822513</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2911324</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>170499236</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1800248</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>17312567</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1419759571]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>159984088</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1611301</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>14407702</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1763704477]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>133968496</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2275399</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>18541916</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=62935382]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>136848076</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1594683</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>18145292</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=785386765]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>143013440</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1698227</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>14907424</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C1
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=798276826]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>130244184</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2108738</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>20948089</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>85998943</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>7019276</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>24975272</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=135355137]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44022727</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>7293321</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>45163203</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=175572951]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>55352455</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>8105564</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>40680752</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1962439151]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>58738060</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>3248795</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>44384236</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=748032800]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>31146377</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>6784747</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>59705247</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 0
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=80436828]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>92688427</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>6653912</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>31389712</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>110114488</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>2098250</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>55721233</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=1325401854]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>73667248</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1468867</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>81431456</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=2126377405]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>61157427</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1876657</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>85822767</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=266694586]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>70408186</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1611575</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>80922850</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=580304749]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>76088000</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1819875</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>72802416</td>
+</tr>
+<tr>
+<td nowrap valign=top width=10><pre>split
+    actor1: C2
+    actor2: C2
+</pre></td>
+<td nowrap valign=top width=10><pre>    actor1: package group 0, core group 0
+    actor2: package group 0, core group 1
+</pre></td>
+<td        valign=top width=10>
+<pre>[-XX:+StressLCM, -XX:+StressGCM, -XX:+StressIGVN, -XX:+StressCCP, -XX:StressSeed=916254274]</pre>
+</td>
+<td align='center' bgColor='green '>OK</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>81100284</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>1958232</td>
+<td align='right' width='33.333333333333336%' bgColor=#00ff00>65204415</td>
+</tr>
+</table>
+<h3>Messages</h3>
+<h3>VM Output Streams</h3>
+<h3>VM Error Streams</h3>
+</body>
+</html>
